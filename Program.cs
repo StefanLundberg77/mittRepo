@@ -212,16 +212,16 @@ namespace DebugExample
             string[] weekdays = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
             // We use DateTime to get the day of the week index (0 basead).
-            int todayIndex = 6; //(int)DateTime.Now.DayOfWeek-1; KOMMER BLI FEL NÄR de är 0????
+            int todayIndex = (int)DateTime.Now.DayOfWeek-1; //KOMMER BLI FEL NÄR de är 0????
+            if (todayIndex <= 0)
+            {
+                todayIndex = 0;
+            }
             System.Console.WriteLine("Today index: " + (int)todayIndex);
 
             // Try to calculate tomorrow's index.
             
             int tomorrowIndex = (todayIndex + 1);
-            if (tomorrowIndex > 6)
-            {
-                tomorrowIndex = 0;
-            }
 
             Console.WriteLine("Today is: " + weekdays[todayIndex]);
             Console.WriteLine("Tomorrow will be: " + weekdays[tomorrowIndex]);
